@@ -2,8 +2,8 @@ package com.fabricioProject.todoList.Controller;
 
 import com.fabricioProject.todoList.Entity.TodoModel;
 import com.fabricioProject.todoList.Service.TodoService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -16,18 +16,23 @@ public class TodoController {
         this.todoService = todoService;
     }
 
-    List<TodoModel> create(TodoModel todo){
+    @PostMapping
+    List<TodoModel> create(@RequestBody TodoModel todo){
         return todoService.create(todo);
     }
 
+    @GetMapping
     List<TodoModel> list(){
         return todoService.list();
     }
 
-    List<TodoModel> update(TodoModel todo){
+    @PutMapping
+    List<TodoModel> update(@RequestBody TodoModel todo){
         return todoService.update(todo);
     }
-    List<TodoModel> delete(Long id){
+
+    @DeleteMapping("{id}")
+    List<TodoModel> delete(@PathVariable("id") Long id){
         return todoService.delete(id);
     }
 
