@@ -2,7 +2,6 @@ package com.fabricioProject.todoList.Service;
 
 import com.fabricioProject.todoList.Entity.TodoModel;
 import com.fabricioProject.todoList.Repository.TodoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
