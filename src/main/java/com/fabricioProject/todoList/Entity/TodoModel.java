@@ -1,19 +1,29 @@
 package com.fabricioProject.todoList.Entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "todos")
 public class TodoModel {
+
+    public TodoModel(String name, String description, int priority, boolean realization) {
+        this.priority = priority;
+        this.realization = realization;
+        this.description = description;
+        this.name = name;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "nome")
+    @NotBlank
     private String name;
 
     @Column(name = "descricao")
+    @NotBlank
     private String description;
 
     @Column(name = "realizado")

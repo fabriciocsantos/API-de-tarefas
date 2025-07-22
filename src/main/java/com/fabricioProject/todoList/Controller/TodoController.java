@@ -2,6 +2,7 @@ package com.fabricioProject.todoList.Controller;
 
 import com.fabricioProject.todoList.Entity.TodoModel;
 import com.fabricioProject.todoList.Service.TodoService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class TodoController {
     }
 
     @PostMapping
-    List<TodoModel> create(@RequestBody TodoModel todo){
+    List<TodoModel> create(@RequestBody @Valid TodoModel todo){
         return todoService.create(todo);
     }
 
